@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  ============================================================================
+  BIE-WELL — draft site built by Claude. Placeholder content to replace:
+  ============================================================================
+  1. About: headshot DONE (joey_professional_image.png must be deployed in
+     the same folder as this file). Education verified: UCSF = post-master's
+     certificate; FNP-BC & PMHNP-BC confirmed. Colorado licensure still
+     needs Joseph's confirmation.
+  2. Testimonials: section REMOVED (no real reviews yet). If re-adding
+     later, use only real, CONSENTED client reviews and check the Colorado
+     Board of Nursing's advertising rules first.
+  3. FAQ: fees are PLACEHOLDERS pending Joseph's confirmation — $300
+     initial evaluation / $150 follow-up / free 15-min consult. Confirm
+     all three (especially whether the consult call is actually free).
+     Insurance answer is set to self-pay only; update if he joins panels.
+  4. Contact: phone + email DONE. Still need: address (or remove the
+     address line if fully virtual) and confirmed hours.
+  5. Footer: real license number (Colorado Board of Nursing — replace
+     #[XXXXXX]).
+  7. Contact form currently only shows an on-screen confirmation — it does
+     NOT send anywhere yet. Before launch, connect it to a real form
+     backend (e.g. Formspree, Netlify Forms) or replace it with a
+     scheduling embed (Calendly, SimplePractice, Acuity).
+  8. Do not collect protected health information (PHI) through a plain
+     contact form — keep intake fields limited to name/contact/reason.
+  ============================================================================
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bie-Well | Joseph Bielefeld, FNP, PMHNP-BC — Psychiatric Care</title>
+<meta name="description" content="Bie-Well offers compassionate, evidence-based psychiatric care with Joseph Bielefeld, dual board-certified FNP/PMHNP-BC. 100% telehealth treatment for anxiety, depression, mood disorders, psychosis, ADHD, PTSD, and insomnia — LGBTQ+ affirming, for clients 12 and up.">
+<meta name="theme-color" content="#12191F">
+<meta property="og:title" content="Bie-Well | Joseph Bielefeld, FNP, PMHNP-BC">
+<meta property="og:description" content="Psychiatric evaluation and medication management, 100% telehealth. Evidence-based, LGBTQ+ affirming, HIPAA-compliant care.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2312191F'/%3E%3Cpath d='M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48' fill='none' stroke='%23B8843C' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  /* ===================== TOKENS ===================== */
+  :root{
+    --ink:#12191F;
+    --ink-soft:#1C252C;
+    --paper:#E7EAEC;
+    --paper-white:#FFFFFF;
+    --brass:#B8843C;
+    --brass-dark:#8F6527;
+    --slate:#55707C;
+    --text-muted:#5C6870;
+    --line-on-paper: rgba(18,25,31,0.14);
+    --line-on-ink: rgba(255,255,255,0.16);
+    --font-display:'Lora', Georgia, serif;
+    --font-body:'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+    --shadow-card: 0 1px 2px rgba(18,25,31,0.05), 0 10px 28px rgba(18,25,31,0.08);
+    --ease: cubic-bezier(0.4,0,0.2,1);
+    --nav-h: 76px;
+    --container: 1180px;
+  }
+
+  /* ===================== RESET ===================== */
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  button{ font-family:inherit; cursor:pointer; background:none; border:none; color:inherit; }
+  input,textarea,select{ font-family:inherit; font-size:1rem; color:inherit; }
+  ::selection{ background:var(--brass); color:var(--ink); }
+  section{ scroll-margin-top:calc(var(--nav-h) + 12px); }
+
+  :focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{
+      animation-duration:0.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:0.001ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  .container{ max-width:var(--container); margin:0 auto; padding:0 1.75rem; }
+  .skip-link{
+    position:absolute; left:1rem; top:-60px; background:var(--brass); color:var(--ink);
+    padding:0.75rem 1.25rem; border-radius:4px; z-index:200; transition:top .25s var(--ease);
+    font-weight:600;
+  }
+  .skip-link:focus{ top:1rem; }
+
+  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.2; color:var(--ink); }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.78rem; font-weight:500; letter-spacing:0.14em;
+    text-transform:uppercase; display:inline-flex; align-items:center; gap:0.6em;
+  }
+  .eyebrow.on-paper{ color:var(--slate); }
+  .eyebrow.on-ink{ color:var(--brass); }
+  .eyebrow::before{ content:''; width:1.4em; height:1px; background:currentColor; opacity:0.7; }
+
+  p.lede{ color:var(--text-muted); font-size:1.08rem; max-width:52ch; }
+
+  /* ===================== BUTTONS ===================== */
+  .btn{
+    display:inline-flex; align-items:center; gap:0.6rem; font-weight:600; font-size:0.98rem;
+    padding:0.9rem 1.6rem; border-radius:6px; transition:transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), color .25s var(--ease);
+    white-space:nowrap;
+  }
+  .btn svg{ width:16px; height:16px; transition:transform .25s var(--ease); }
+  .btn:hover svg{ transform:translateX(3px); }
+  .btn:hover{ transform:translateY(-2px); }
+
+  .btn-brass{ background:var(--brass); color:var(--ink); }
+  .btn-brass:hover{ background:#c79654; }
+
+  .btn-ghost-ink{ border:1.5px solid var(--line-on-ink); color:#F2F1EC; }
+  .btn-ghost-ink:hover{ border-color:var(--brass); color:var(--brass); }
+
+  .btn-ink{ background:var(--ink); color:#fff; }
+  .btn-ink:hover{ background:var(--ink-soft); }
+
+  .btn-outline-ink{ border:1.5px solid var(--line-on-paper); color:var(--ink); }
+  .btn-outline-ink:hover{ border-color:var(--ink); background:rgba(18,25,31,0.04); }
+
+  /* ===================== HEADER ===================== */
+  .site-header{
+    position:fixed; top:0; left:0; right:0; z-index:100; height:var(--nav-h);
+    background:rgba(18,25,31,0.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent; transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .site-header.scrolled{ border-bottom-color:var(--line-on-ink); box-shadow:0 8px 24px rgba(0,0,0,0.18); }
+  .header-inner{ height:var(--nav-h); display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+  .logo{ display:flex; align-items:center; gap:0.7rem; flex-shrink:0; }
+  .logo svg{ width:38px; height:38px; }
+  .logo-word{ font-family:var(--font-display); font-weight:600; font-size:1.25rem; color:#F2F1EC; }
+  .main-nav{ display:flex; align-items:center; gap:2rem; }
+  .main-nav a{
+    font-size:0.95rem; color:#C7CDD1; font-weight:500; position:relative; padding:0.3rem 0;
+    transition:color .2s var(--ease);
+  }
+  .main-nav a::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:1.5px; width:0; background:var(--brass);
+    transition:width .25s var(--ease);
+  }
+  .main-nav a:hover{ color:#fff; }
+  .main-nav a:hover::after{ width:100%; }
+  .header-actions{ display:flex; align-items:center; gap:1.25rem; }
+  .nav-cta{ padding:0.65rem 1.3rem; font-size:0.92rem; }
+
+  .hamburger{ display:none; flex-direction:column; justify-content:center; gap:5px; width:30px; height:30px; }
+  .hamburger span{ display:block; height:2px; width:100%; background:#F2F1EC; transition:transform .3s var(--ease), opacity .3s var(--ease); }
+  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2){ opacity:0; }
+  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  @media (max-width:900px){
+    .main-nav, .nav-cta{ display:none; }
+    .hamburger{ display:flex; }
+    .main-nav.open{
+      display:flex; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--ink);
+      flex-direction:column; align-items:flex-start; gap:0; padding:1.5rem 1.75rem 2rem;
+      border-bottom:1px solid var(--line-on-ink);
+    }
+    .main-nav.open a{ padding:0.85rem 0; width:100%; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .main-nav.open .nav-cta{ display:inline-flex; margin-top:1rem; }
+  }
+
+  /* ===================== HERO ===================== */
+  .hero{
+    background:linear-gradient(180deg, var(--ink) 0%, var(--ink) 82%, var(--paper) 100%);
+    padding:calc(var(--nav-h) + 2.75rem) 0 2.5rem;
+    color:#F2F1EC;
+  }
+  .hero-inner{ max-width:1080px; }
+  .hero h1{
+    font-size:clamp(2.2rem, 3.6vw + 1rem, 3.2rem); color:#F7F6F1; margin:0.9rem 0 1rem; letter-spacing:-0.01em;
+  }
+  .hero h1 em{ color:var(--brass); font-style:italic; }
+  .hero .lede{ color:#C7CDD1; margin-bottom:1.1rem; max-width:78ch; }
+  .hero .lede.specialisms{ font-size:0.93rem; max-width:88ch; color:#A9B2B8; margin-bottom:1.6rem; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:1.9rem; }
+
+  .waveform-wrap{ width:100%; margin-top:0.25rem; }
+  .waveform-wrap svg{ width:100%; height:auto; max-height:120px; display:block; }
+  .wave-path{
+    stroke-dasharray:2600; stroke-dashoffset:2600;
+    animation:draw 2.6s var(--ease) 0.4s forwards;
+  }
+  .wave-glow{
+    stroke-dasharray:2600; stroke-dashoffset:2600;
+    animation:draw 2.6s var(--ease) 0.4s forwards;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .wave-path, .wave-glow{ stroke-dashoffset:0; animation:none; }
+  }
+
+  /* ===================== TRUST STRIP ===================== */
+  .trust-strip{ padding:2.4rem 0; border-bottom:1px solid var(--line-on-paper); }
+  .trust-row{
+    display:flex; flex-wrap:wrap; gap:0 2.5rem; justify-content:space-between; align-items:center;
+  }
+  .trust-item{
+    font-family:var(--font-mono); font-size:0.82rem; letter-spacing:0.06em; color:var(--slate);
+    display:flex; align-items:center; gap:0.6rem; padding:0.4rem 0;
+  }
+  .trust-item svg{ width:15px; height:15px; flex-shrink:0; color:var(--brass); }
+
+  /* ===================== SECTION SHELL ===================== */
+  .section{ padding:5.5rem 0; }
+  .section-head{ max-width:640px; margin-bottom:3rem; }
+  .section-head h2{ font-size:clamp(1.8rem, 2.2vw + 1rem, 2.5rem); margin-top:0.8rem; }
+  .section-alt{ background:var(--paper-white); }
+
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  /* ===================== ABOUT ===================== */
+  .about-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:4rem; align-items:start; }
+  .avatar-frame{
+    width:100%; max-width:320px; aspect-ratio:4/5; border-radius:6px 64px 6px 64px;
+    background:linear-gradient(150deg, var(--slate), var(--ink-soft));
+    display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-card);
+  }
+  .avatar-initials{ font-family:var(--font-display); font-weight:600; font-size:4.2rem; color:#fff; opacity:0.94; }
+  .about-copy h2{ margin-bottom:1.1rem; }
+  .credential-list{ margin-top:2rem; display:flex; flex-direction:column; gap:0.9rem; }
+  .credential-list li{ display:flex; gap:0.75rem; align-items:flex-start; font-size:0.97rem; }
+  .credential-list svg{ width:18px; height:18px; flex-shrink:0; color:var(--brass); margin-top:0.15rem; }
+  .credential-list span{ color:var(--ink); }
+  .credential-list .placeholder{ color:var(--text-muted); font-style:italic; }
+
+  @media (max-width:860px){
+    .about-grid{ grid-template-columns:1fr; gap:2.5rem; }
+    .avatar-frame{ max-width:240px; }
+  }
+
+  /* ===================== SERVICES (editorial list) ===================== */
+  .service-row{
+    display:grid; grid-template-columns:110px 1fr; gap:2rem; padding:1.6rem 0;
+    border-top:1px solid var(--line-on-paper); align-items:start;
+    transition:background .25s var(--ease), padding-left .25s var(--ease);
+  }
+  .service-row:last-child{ border-bottom:1px solid var(--line-on-paper); }
+  .service-row:hover{ background:rgba(184,132,60,0.06); padding-left:0.75rem; }
+  .service-tag{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.08em; color:var(--brass-dark);
+    border:1px solid rgba(184,132,60,0.4); border-radius:4px; padding:0.3rem 0.5rem; text-align:center;
+    height:fit-content;
+  }
+  .service-copy h3{ font-size:1.2rem; font-weight:600; margin-bottom:0.35rem; }
+  .service-copy p{ color:var(--text-muted); max-width:56ch; font-size:0.98rem; }
+
+  @media (max-width:640px){
+    .service-row{ grid-template-columns:1fr; gap:0.6rem; }
+    .service-tag{ width:fit-content; }
+  }
+
+  /* ===================== PROCESS ===================== */
+  .process-list{ position:relative; }
+  .process-line{ position:absolute; top:34px; left:0; right:0; height:14px; z-index:0; }
+  .process-line svg{ width:100%; height:100%; }
+  .process-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; position:relative; z-index:1; }
+  .process-step{ display:flex; flex-direction:column; gap:0.9rem; }
+  .step-num{
+    font-family:var(--font-mono); font-size:1.5rem; font-weight:600; color:var(--ink);
+    background:var(--paper); width:68px; height:68px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; border:1.5px solid var(--line-on-paper);
+  }
+  .section-alt .step-num{ background:var(--paper-white); }
+  .process-step h3{ font-size:1.08rem; font-weight:600; }
+  .process-step p{ color:var(--text-muted); font-size:0.95rem; }
+
+  @media (max-width:860px){
+    .process-steps{ grid-template-columns:1fr; gap:2.4rem; }
+    .process-line{ display:none; }
+  }
+
+  /* ===================== FAQ ===================== */
+  .faq-item{ border-top:1px solid var(--line-on-paper); }
+  .faq-list .faq-item:last-child{ border-bottom:1px solid var(--line-on-paper); }
+  .faq-question{
+    width:100%; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+    padding:1.5rem 0; text-align:left; font-family:var(--font-display); font-size:1.15rem; font-weight:600;
+  }
+  .faq-question svg{ width:20px; height:20px; flex-shrink:0; color:var(--brass); transition:transform .3s var(--ease); }
+  .faq-item.active .faq-question svg{ transform:rotate(180deg); }
+  .faq-answer-wrap{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s var(--ease); }
+  .faq-item.active .faq-answer-wrap{ grid-template-rows:1fr; }
+  .faq-answer-inner{ overflow:hidden; }
+  .faq-answer-inner p{ padding-bottom:1.6rem; color:var(--text-muted); max-width:62ch; }
+
+  /* ===================== CONTACT ===================== */
+  .contact-grid{ display:grid; grid-template-columns:1.2fr 0.9fr; gap:3.5rem; }
+  .field{ margin-bottom:1.6rem; }
+  .field label{ display:block; font-size:0.85rem; font-weight:600; margin-bottom:0.5rem; color:var(--ink); }
+  .field input, .field textarea, .field select{
+    width:100%; background:transparent; border:none; border-bottom:1.5px solid var(--line-on-paper);
+    padding:0.6rem 0.1rem; transition:border-color .2s var(--ease);
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{ border-bottom-color:var(--brass); outline:none; }
+  .field textarea{ resize:vertical; min-height:90px; }
+  .field.field-error input, .field.field-error textarea{ border-bottom-color:#a8402f; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  .form-status{ margin-top:1rem; font-size:0.92rem; font-weight:500; min-height:1.2em; }
+  .form-status.success{ color:#2f6b4f; }
+  .form-status.error{ color:#a8402f; }
+
+  .contact-side{ display:flex; flex-direction:column; gap:2rem; }
+  .contact-card{ background:var(--paper-white); border-radius:8px; padding:1.75rem; box-shadow:var(--shadow-card); }
+  .contact-line{ display:flex; gap:0.8rem; align-items:flex-start; font-size:0.95rem; margin-bottom:1rem; }
+  .contact-line:last-child{ margin-bottom:0; }
+  .contact-line svg{ width:18px; height:18px; flex-shrink:0; color:var(--brass); margin-top:0.2rem; }
+  .contact-line .placeholder{ color:var(--text-muted); font-style:italic; }
+
+  .crisis-box{
+    background:var(--ink); color:#F2F1EC; border-radius:8px; padding:1.75rem;
+    border-left:4px solid var(--brass);
+  }
+  .crisis-box h4{ color:#fff; font-size:1rem; margin-bottom:0.6rem; font-family:var(--font-body); }
+  .crisis-box p{ font-size:0.92rem; color:#C7CDD1; }
+  .crisis-box a{ color:var(--brass); font-weight:600; text-decoration:underline; }
+
+  @media (max-width:900px){
+    .contact-grid{ grid-template-columns:1fr; }
+    .field-row{ grid-template-columns:1fr; gap:0; }
+  }
+
+  /* ===================== FOOTER ===================== */
+  .site-footer{ background:var(--ink); color:#C7CDD1; padding:4rem 0 2rem; }
+  .footer-grid{ display:grid; grid-template-columns:1.3fr 0.8fr 0.8fr 1fr; gap:2.5rem; margin-bottom:3rem; }
+  .footer-brand .logo-word{ color:#F2F1EC; }
+  .footer-tag{ margin-top:1rem; font-size:0.92rem; max-width:32ch; color:#9BA6AC; }
+  .footer-col h5{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--brass); margin-bottom:1rem; font-weight:500;
+  }
+  .footer-col a, .footer-col span{ display:block; font-size:0.92rem; margin-bottom:0.7rem; color:#C7CDD1; }
+  .footer-col a:hover{ color:#fff; }
+  .footer-bottom{
+    border-top:1px solid var(--line-on-ink); padding-top:1.75rem; display:flex; flex-wrap:wrap;
+    justify-content:space-between; gap:1rem; font-size:0.85rem; color:#8B969C;
+  }
+  .footer-bottom a{ color:#8B969C; }
+  .footer-bottom a:hover{ color:#fff; }
+
+  @media (max-width:760px){
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:480px){
+    .footer-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:640px){
+    .section{ padding:3.75rem 0; }
+    .hero{ padding-top:calc(var(--nav-h) + 2.5rem); }
+  }
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="Bie-Well home">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <rect width="100" height="100" rx="16" fill="#B8843C"/>
+        <path d="M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48" fill="none" stroke="#12191F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="logo-word">Bie-Well</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#about">About</a>
+      <a href="#services">Care</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-brass nav-cta">Book a consultation</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <span class="eyebrow on-ink">Psychiatric mental health nurse practitioner</span>
+      <h1>Care that helps you feel <em>steady</em> again.</h1>
+      <p class="lede">Joseph Bielefeld is a board-certified Psychiatric Mental Health Nurse Practitioner providing comprehensive psychiatric and emotional care. Patients can expect convenient access to services through a secure virtual platform, along with efficient electronic prescribing.</p>
+      <p class="lede specialisms">Specializations include mood disorders, bipolar disorder, anxiety disorders, ADHD, obsessive-compulsive disorder (OCD), early- and late-onset schizophrenia and schizoaffective disorder, other psychotic disorders, addiction medicine, LGBTQ+ mental health, and learning disorders, as well as a range of other psychiatric conditions.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-brass">
+          Book a consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#process" class="btn btn-ghost-ink">See how it works</a>
+      </div>
+    </div>
+    <div class="container waveform-wrap" aria-hidden="true">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <path class="wave-glow" d="M0,100 L40,32 L80,168 L120,52 L160,148 L200,68 L240,133 L280,78 L320,122 C340,122 340,82 360,82 C380,82 380,118 400,118 C420,118 420,82 440,82 C460,82 460,118 480,118 C500,118 500,82 520,82 C540,82 540,118 560,118 C580,118 580,82 600,82 C620,82 620,118 640,118 C660,118 660,82 680,82 C700,82 700,118 720,118 C740,118 740,82 760,82 C780,82 780,118 800,118 C820,118 820,82 840,82 C860,82 860,118 880,118 C900,118 900,82 920,82 C940,82 940,118 960,118 C980,118 980,82 1000,82 C1020,82 1020,100 1040,100 C1060,100 1060,100 1080,100 L1200,100"
+          fill="none" stroke="#B8843C" stroke-width="10" stroke-linecap="round" opacity="0.18"/>
+        <path class="wave-path" d="M0,100 L40,32 L80,168 L120,52 L160,148 L200,68 L240,133 L280,78 L320,122 C340,122 340,82 360,82 C380,82 380,118 400,118 C420,118 420,82 440,82 C460,82 460,118 480,118 C500,118 500,82 520,82 C540,82 540,118 560,118 C580,118 580,82 600,82 C620,82 620,118 640,118 C660,118 660,82 680,82 C700,82 700,118 720,118 C740,118 740,82 760,82 C780,82 780,118 800,118 C820,118 820,82 840,82 C860,82 860,118 880,118 C900,118 900,82 920,82 C940,82 940,118 960,118 C980,118 980,82 1000,82 C1020,82 1020,100 1040,100 C1060,100 1060,100 1080,100 L1200,100"
+          fill="none" stroke="#B8843C" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST STRIP ===================== -->
+  <section class="trust-strip">
+    <div class="container trust-row">
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+        Dual board-certified: FNP &amp; PMHNP
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+        100% telehealth — Colorado
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+        HIPAA-compliant care
+      </span>
+      <span class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+        Clients 12 and up
+      </span>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="reveal">
+        <img class="avatar-frame" src="joey_professional_image.png" alt="Joseph Bielefeld, PMHNP-BC, FNP-BC" style="object-fit:cover;">
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow on-paper">About Joseph — in his own words</span>
+        <h2>Meet Joseph Bielefeld, PMHNP-BC, FNP-BC</h2>
+        <p class="lede" style="max-width:60ch;">I have over 15 years of experience working in emergency services as well as inpatient and outpatient psychiatry. Throughout my career, I have come to recognize that mental health extends beyond medication alone; it encompasses nutrition, sleep hygiene, physical activity, and meaningful connection with friends, family, and nature.</p>
+        <p class="lede" style="max-width:60ch; margin-top:1rem;">My background in psychology allows me to better understand individual behaviors and provide thoughtful, practical solutions to life's ongoing challenges. I strive to create a safe, supportive, and nonjudgmental environment where clients feel heard, respected, and empowered. I welcome open dialogue and am fully committed to maintaining the highest standards of client confidentiality.</p>
+        <ul class="credential-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>Post-master's certificate, Psychiatric Mental Health Nurse Practitioner — University of California, San Francisco (2022) · Board certified (PMHNP-BC)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>MS in Nursing, Family Nurse Practitioner — Sonoma State University (2020) · Board certified (FNP-BC), began practice in primary care</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>BS in Nursing — Georgia Southern University (2010)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>BS in Psychology — Kennesaw State University (2006)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>Dual board certified — FNP-BC &amp; PMHNP-BC (ANCC)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>
+            <span>Fully licensed in Colorado</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow on-paper">Care offered</span>
+        <h2>How Bie-Well can help</h2>
+      </div>
+
+      <div class="reveal">
+        <div class="service-row">
+          <span class="service-tag">MEDS</span>
+          <div class="service-copy">
+            <h3>Medication management</h3>
+            <p>Ongoing evaluation and adjustment of psychiatric medication, based on how you're actually responding — not a fixed protocol.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">ANX / DEP</span>
+          <div class="service-copy">
+            <h3>Anxiety &amp; depression</h3>
+            <p>Evidence-based care for anxiety, panic, and depression, focused on what's making daily life difficult right now.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">MOOD</span>
+          <div class="service-copy">
+            <h3>Mood disorders &amp; mania</h3>
+            <p>Evaluation and ongoing management of mood disorders, including bipolar disorder and mania, with careful medication monitoring.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">PSY</span>
+          <div class="service-copy">
+            <h3>Psychosis</h3>
+            <p>Assessment and medication management for psychosis and psychotic symptoms, coordinated carefully alongside any other providers involved in your care.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">ADHD</span>
+          <div class="service-copy">
+            <h3>ADHD evaluation &amp; treatment</h3>
+            <p>A full evaluation of attention and focus, with a treatment plan built around how you actually work and live.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">PTSD</span>
+          <div class="service-copy">
+            <h3>Trauma-informed care</h3>
+            <p>A steady, non-judgmental space to address trauma and PTSD at your own pace.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">SLEEP</span>
+          <div class="service-copy">
+            <h3>Insomnia &amp; sleep concerns</h3>
+            <p>Evaluation and treatment for insomnia and other sleep difficulties, which often go hand in hand with anxiety, depression, and mood disorders.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">12+</span>
+          <div class="service-copy">
+            <h3>Adolescent &amp; adult psychiatry</h3>
+            <p>Care for clients 12 and up, adjusted for where they are in life — not a one-size-fits-all approach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT TO EXPECT ===================== -->
+  <section class="section" id="sessions">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow on-paper">What to expect</span>
+        <h2>What to expect during our sessions</h2>
+      </div>
+      <div class="reveal">
+        <div class="service-row">
+          <span class="service-tag">FIRST VISIT</span>
+          <div class="service-copy">
+            <h3>A thorough evaluation, not a rushed intake</h3>
+            <p>Initial visits include a thorough psychiatric evaluation and detailed medical history to support accurate diagnosis and individualized treatment planning. Care is guided by the latest evidence-based standards, including diagnostic criteria from the American Psychiatric Association's DSM-5-TR.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">TREATMENT</span>
+          <div class="service-copy">
+            <h3>Careful psychopharmacology and psychoeducation</h3>
+            <p>Treatment is provided for a range of conditions, including bipolar disorder, schizophrenia, psychosis, paranoia, and delusional disorders. Sessions emphasize psychopharmacology, extensive psychoeducation, and close monitoring for medication efficacy and potential side effects, including extrapyramidal symptoms (EPS).</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">FOLLOW-UP</span>
+          <div class="service-copy">
+            <h3>Ongoing monitoring and adjustment</h3>
+            <p>Follow-up visits focus on mood, anxiety, life stressors, medication adjustments, and overall treatment satisfaction. Ongoing care includes targeted support for motivation, insomnia, anxiety, thought processes, and functional barriers impacting daily living, learning, and personal development.</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="service-tag">THE GOAL</span>
+          <div class="service-copy">
+            <h3>Stability, functioning, and long-term outcomes</h3>
+            <p>The goal of care is to promote stability, improve functioning, and support long-term mental health outcomes through a structured, patient-centered approach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="section section-alt" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow on-paper">How it works</span>
+        <h2>Your first four steps</h2>
+      </div>
+      <div class="process-list reveal">
+        <div class="process-line" aria-hidden="true">
+          <svg viewBox="0 0 1000 14" preserveAspectRatio="none">
+            <path d="M0,7 C125,7 125,7 250,7 C375,7 375,7 500,7 C625,7 625,7 750,7 C875,7 875,7 1000,7" fill="none" stroke="#B8843C" stroke-width="1.5" opacity="0.35"/>
+          </svg>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <span class="step-num">01</span>
+            <h3>Book a consultation</h3>
+            <p>A short, no-pressure call to see if we're a good fit.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">02</span>
+            <h3>Complete an evaluation</h3>
+            <p>A full psychiatric assessment covering your history, symptoms, and goals.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">03</span>
+            <h3>Start your treatment plan</h3>
+            <p>A plan built around your life, combining medication and support as needed.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">04</span>
+            <h3>Keep in touch</h3>
+            <p>Regular follow-ups to track progress and adjust course over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow on-paper">Common questions</span>
+        <h2>Before you reach out</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you take insurance?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>Not at the moment — Bie-Well is currently self-pay (cash, card, HSA/FSA). A superbill can be provided on request, which you can submit to your insurer for possible out-of-network reimbursement. <a href="#contact" style="color:var(--brass-dark); font-weight:600; text-decoration:underline;">Book a consultation</a> if you'd like to talk through costs before committing.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What does it cost?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <!-- PLACEHOLDER FEES — Joseph must confirm before launch. Market range for telehealth PMHNP self-pay: initial eval $200–$350, follow-ups $100–$225. -->
+            <p>Fees are straightforward and payable at the time of your visit: a free 15-minute consultation call to see if we're a good fit, then <span class="placeholder">$300</span> for the initial psychiatric evaluation (60 minutes) and <span class="placeholder">$150</span> for follow-up medication management visits (25–30 minutes). Cash, card, and HSA/FSA are accepted. <a href="#contact" style="color:var(--brass-dark); font-weight:600; text-decoration:underline;">Book your free consultation</a> to get started.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What do you treat?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>Anxiety, depression, mood disorders (including bipolar disorder), psychosis, ADHD, trauma and PTSD, and insomnia, for clients 12 and up.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is this fully virtual?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>Yes. Bie-Well is a 100% telehealth practice — every appointment takes place over secure video, so you can get care from wherever you're most comfortable. Joseph is licensed in Colorado, so you'll need to be located in Colorado at the time of your appointments.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What happens at the first appointment?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>A 45–60 minute evaluation covering your history, current concerns, and what you're hoping to get out of care.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is this confidential?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>Yes. Everything you share is kept confidential in line with HIPAA and applicable state and federal law.</p>
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can you prescribe medication?</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-answer-wrap"><div class="faq-answer-inner">
+            <p>Yes — as a board-certified psychiatric nurse practitioner, Joseph can evaluate, prescribe, and manage medication as part of your care.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section-alt" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow on-paper">Get in touch</span>
+        <h2>Reach out to get started</h2>
+        <p class="lede" style="margin-top:0.8rem;">Send a message to schedule a consultation. Most messages get a reply within one business day.</p>
+      </div>
+
+      <div class="contact-grid">
+        <form class="reveal" id="contact-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Full name</label>
+              <input type="text" id="f-name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input type="email" id="f-email" name="email" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input type="tel" id="f-phone" name="phone">
+            </div>
+            <div class="field">
+              <label for="f-contact">Preferred contact method</label>
+              <select id="f-contact" name="preferred">
+                <option>Email</option>
+                <option>Phone</option>
+                <option>Text</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-message">What brings you here?</label>
+            <textarea id="f-message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-ink">
+            Send message
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+
+        <div class="contact-side reveal">
+          <div class="contact-card">
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
+              <a href="tel:+17169033502" style="font-weight:600;">(716) 903-3502</a>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <a href="mailto:joebielefeld@bie-well.com" style="font-weight:600;">joebielefeld@bie-well.com</a>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <span>Licensed to serve clients in Colorado</span>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              <span class="placeholder">Mon–Sat, 8am–6pm</span>
+            </div>
+          </div>
+
+          <div class="crisis-box">
+            <h4>If this is an emergency</h4>
+            <p>If you're in crisis or thinking about harming yourself or someone else, call or text <a href="tel:988">988</a>, call <a href="tel:911">911</a>, or go to your nearest emergency room. Bie-Well is an outpatient practice and isn't equipped for emergency care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo" aria-label="Bie-Well home">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <rect width="100" height="100" rx="16" fill="#B8843C"/>
+            <path d="M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48" fill="none" stroke="#12191F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="logo-word">Bie-Well</span>
+        </a>
+        <p class="footer-tag">Telehealth psychiatric care that helps you feel steady again.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Site</h5>
+        <a href="#about">About</a>
+        <a href="#services">Care</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:+17169033502">(716) 903-3502</a>
+        <a href="mailto:joebielefeld@bie-well.com">joebielefeld@bie-well.com</a>
+        <a href="#contact">Book a consultation</a>
+      </div>
+      <div class="footer-col">
+        <h5>In crisis?</h5>
+        <span>Call or text 988 anytime.</span>
+        <span>Or call 911 / go to the nearest ER.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Bie-Well. Joseph Bielefeld, FNP, PMHNP-BC · License #[XXXXXX], Colorado Board of Nursing.</span>
+      <span><a href="#">Privacy policy</a> · <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Footer year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Sticky header shadow state
+  const header = document.getElementById('header');
+  const onScroll = () => {
+    if (window.scrollY > 30) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('main-nav');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach((el) => observer.observe(el));
+  }
+
+  // FAQ accordion (single-open)
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const btn = item.querySelector('.faq-question');
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach((i) => {
+        i.classList.remove('active');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Contact form — client-side demo only, does not send anywhere yet
+  const form = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach((field) => {
+      const wrap = field.closest('.field');
+      if (!field.value.trim()) {
+        valid = false;
+        if (wrap) wrap.classList.add('field-error');
+      } else if (wrap) {
+        wrap.classList.remove('field-error');
+      }
+    });
+    if (!valid) {
+      formStatus.textContent = 'Please fill in all required fields.';
+      formStatus.className = 'form-status error';
+      return;
+    }
+    formStatus.textContent = "Thank you — your message has been received. We'll be in touch within one business day.";
+    formStatus.className = 'form-status success';
+    form.reset();
+  });
+});
+</script>
+</body>
+</html>
