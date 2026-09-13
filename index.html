@@ -32,20 +32,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bie-Well | Joseph Bielefeld, FNP, PMHNP-BC — Psychiatric Care</title>
 <meta name="description" content="Bie-Well offers compassionate, evidence-based psychiatric care with Joseph Bielefeld, dual board-certified FNP/PMHNP-BC. 100% telehealth treatment for anxiety, depression, mood disorders, psychosis, ADHD, PTSD, and insomnia — LGBTQ+ affirming, for clients 12 and up.">
-<meta name="theme-color" content="#12191F">
+<meta name="theme-color" content="#FFFFFF">
 <meta property="og:title" content="Bie-Well | Joseph Bielefeld, FNP, PMHNP-BC">
 <meta property="og:description" content="Psychiatric evaluation and medication management, 100% telehealth. Evidence-based, LGBTQ+ affirming, HIPAA-compliant care.">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2312191F'/%3E%3Cpath d='M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48' fill='none' stroke='%23B8843C' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20100%20100%27%3E%3Crect%20width%3D%27100%27%20height%3D%27100%27%20rx%3D%2716%27%20fill%3D%27white%27%2F%3E%3Cpath%20d%3D%27M8%2073L30%2051L42%2060L59%2034L92%2073L59%2046L44%2071L30%2061Z%27%20fill%3D%27%23062B43%27%2F%3E%3Cpath%20d%3D%27M10%2085H90%27%20stroke%3D%27%23B38B2D%27%20stroke-width%3D%274%27%2F%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Lora:ital,wght@0,500;0,600;0,700;1,500&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
   /* ===================== TOKENS ===================== */
   :root{
-    --ink:#12191F;
-    --ink-soft:#1C252C;
-    --paper:#E7EAEC;
+    --ink:#062B43;
+    --ink-soft:#163D54;
+    --paper:#FFFFFF;
     --paper-white:#FFFFFF;
     --brass:#B8843C;
     --brass-dark:#8F6527;
@@ -191,20 +191,8 @@
   .hero .lede.specialisms{ font-size:0.93rem; max-width:88ch; color:#A9B2B8; margin-bottom:1.6rem; }
   .hero-ctas{ display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:1.9rem; }
 
-  .waveform-wrap{ width:100%; margin-top:0.25rem; }
-  .waveform-wrap svg{ width:100%; height:auto; max-height:120px; display:block; }
-  .wave-path{
-    stroke-dasharray:2600; stroke-dashoffset:2600;
-    animation:draw 2.6s var(--ease) 0.4s forwards;
-  }
-  .wave-glow{
-    stroke-dasharray:2600; stroke-dashoffset:2600;
-    animation:draw 2.6s var(--ease) 0.4s forwards;
-  }
-  @keyframes draw{ to{ stroke-dashoffset:0; } }
-  @media (prefers-reduced-motion: reduce){
-    .wave-path, .wave-glow{ stroke-dashoffset:0; animation:none; }
-  }
+  .mountain-wrap{margin-top:1.5rem;}
+  .mountain-wrap svg{display:block;width:100%;height:auto;max-height:160px;}
 
   /* ===================== TRUST STRIP ===================== */
   .trust-strip{ padding:2.4rem 0; border-bottom:1px solid var(--line-on-paper); }
@@ -366,6 +354,35 @@
     .section{ padding:3.75rem 0; }
     .hero{ padding-top:calc(var(--nav-h) + 2.5rem); }
   }
+
+  /* White background with navy text, matching the supplied Bie-Well branding. */
+  .site-header{background:#fff;border-bottom-color:var(--line-on-paper);}
+  .site-header.scrolled{border-bottom-color:var(--line-on-paper);box-shadow:0 4px 20px rgba(6,43,67,.08);}
+  .logo .brand-mark{width:146px;height:68px;}
+  .main-nav a{color:var(--ink);}
+  .main-nav a:hover{color:var(--brass-dark);}
+  .hamburger span{background:var(--ink);}
+  .hero{background:#fff;color:var(--ink);}
+  .hero h1{color:var(--ink);}
+  .hero h1 em,.eyebrow.on-ink{color:var(--brass-dark);}
+  .hero .lede,.hero .lede.specialisms{color:var(--text-muted);}
+  .btn-ghost-ink{border-color:var(--line-on-paper);color:var(--ink);}
+  .btn-ghost-ink:hover{border-color:var(--brass-dark);color:var(--brass-dark);}
+  .crisis-box{background:#fff;color:var(--ink);border:1px solid var(--line-on-paper);border-left:4px solid var(--brass);}
+  .crisis-box h4{color:var(--ink);}
+  .crisis-box p{color:var(--text-muted);}
+  .crisis-box a{color:var(--brass-dark);}
+  .site-footer{background:#fff;color:var(--ink);border-top:1px solid var(--line-on-paper);}
+  .footer-brand .brand-mark{width:200px;height:auto;}
+  .footer-tag,.footer-col a,.footer-col span,.footer-bottom,.footer-bottom a{color:var(--text-muted);}
+  .footer-col h5,.footer-col a:hover,.footer-bottom a:hover{color:var(--brass-dark);}
+  .footer-bottom{border-top-color:var(--line-on-paper);}
+  .footer-col a{overflow-wrap:anywhere;}
+  @media(max-width:900px){
+    .main-nav.open{background:#fff;border-bottom-color:var(--line-on-paper);}
+    .main-nav.open a{border-bottom-color:var(--line-on-paper);}
+  }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 </style>
 </head>
 <body>
@@ -374,11 +391,11 @@
 <header class="site-header" id="header">
   <div class="container header-inner">
     <a href="#top" class="logo" aria-label="Bie-Well home">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <rect width="100" height="100" rx="16" fill="#B8843C"/>
-        <path d="M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48" fill="none" stroke="#12191F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="brand-mark" viewBox="0 0 620 290" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <text x="310" y="174" text-anchor="middle" fill="#062B43" font-family="Georgia, serif" font-weight="700" font-size="154" letter-spacing="-9">Bie-Well</text>
+        <path d="M1 85 L92 40 L126 55 L157 36 L168 42 L216 7 L285 52 L321 36 L418 85 L321 45 L296 60 L329 79 L216 18 L169 51 L157 45 L84 79 L114 61 L92 49 Z" fill="#2D607C" transform="translate(10 184) scale(1.4 .95)"/>
+        <path d="M12 289 H608" stroke="#B38B2D" stroke-width="3"/>
       </svg>
-      <span class="logo-word">Bie-Well</span>
     </a>
     <nav class="main-nav" id="main-nav">
       <a href="#about">About</a>
@@ -408,15 +425,13 @@
           Book a consultation
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
+        <a href="https://care.headway.co/providers/joseph-bielefeld" class="btn btn-outline-ink" target="_blank" rel="noopener noreferrer">Book on Headway<span class="sr-only"> (opens in a new tab)</span></a>
         <a href="#process" class="btn btn-ghost-ink">See how it works</a>
       </div>
     </div>
-    <div class="container waveform-wrap" aria-hidden="true">
-      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
-        <path class="wave-glow" d="M0,100 L40,32 L80,168 L120,52 L160,148 L200,68 L240,133 L280,78 L320,122 C340,122 340,82 360,82 C380,82 380,118 400,118 C420,118 420,82 440,82 C460,82 460,118 480,118 C500,118 500,82 520,82 C540,82 540,118 560,118 C580,118 580,82 600,82 C620,82 620,118 640,118 C660,118 660,82 680,82 C700,82 700,118 720,118 C740,118 740,82 760,82 C780,82 780,118 800,118 C820,118 820,82 840,82 C860,82 860,118 880,118 C900,118 900,82 920,82 C940,82 940,118 960,118 C980,118 980,82 1000,82 C1020,82 1020,100 1040,100 C1060,100 1060,100 1080,100 L1200,100"
-          fill="none" stroke="#B8843C" stroke-width="10" stroke-linecap="round" opacity="0.18"/>
-        <path class="wave-path" d="M0,100 L40,32 L80,168 L120,52 L160,148 L200,68 L240,133 L280,78 L320,122 C340,122 340,82 360,82 C380,82 380,118 400,118 C420,118 420,82 440,82 C460,82 460,118 480,118 C500,118 500,82 520,82 C540,82 540,118 560,118 C580,118 580,82 600,82 C620,82 620,118 640,118 C660,118 660,82 680,82 C700,82 700,118 720,118 C740,118 740,82 760,82 C780,82 780,118 800,118 C820,118 820,82 840,82 C860,82 860,118 880,118 C900,118 900,82 920,82 C940,82 940,118 960,118 C980,118 980,82 1000,82 C1020,82 1020,100 1040,100 C1060,100 1060,100 1080,100 L1200,100"
-          fill="none" stroke="#B8843C" stroke-width="2.5" stroke-linecap="round"/>
+    <div class="container mountain-wrap" aria-hidden="true">
+      <svg viewBox="0 0 433 98" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 85 L92 40 L126 55 L157 36 L168 42 L216 7 L285 52 L321 36 L418 85 L321 45 L296 60 L329 79 L216 18 L169 51 L157 45 L84 79 L114 61 L92 49 Z" fill="#2D607C"/>
       </svg>
     </div>
   </section>
@@ -759,9 +774,10 @@
 
         <div class="contact-side reveal">
           <div class="contact-card">
+            <div class="contact-line"><a class="btn btn-ink" href="https://care.headway.co/providers/joseph-bielefeld" target="_blank" rel="noopener noreferrer">Book on Headway<span class="sr-only"> (opens in a new tab)</span></a></div>
             <div class="contact-line">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1z"/></svg>
-              <a href="tel:+17169033502" style="font-weight:600;">(716) 903-3502</a>
+              <a href="tel:+17196213288" style="font-weight:600;">719-621-3288</a>
             </div>
             <div class="contact-line">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
@@ -793,11 +809,11 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#top" class="logo" aria-label="Bie-Well home">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <rect width="100" height="100" rx="16" fill="#B8843C"/>
-            <path d="M22 52L36 32L50 68L64 40C70 40 70 58 76 58C82 58 84 50 90 48" fill="none" stroke="#12191F" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <span class="logo-word">Bie-Well</span>
+          <svg class="brand-mark" viewBox="0 0 620 290" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <text x="310" y="174" text-anchor="middle" fill="#062B43" font-family="Georgia, serif" font-weight="700" font-size="154" letter-spacing="-9">Bie-Well</text>
+        <path d="M1 85 L92 40 L126 55 L157 36 L168 42 L216 7 L285 52 L321 36 L418 85 L321 45 L296 60 L329 79 L216 18 L169 51 L157 45 L84 79 L114 61 L92 49 Z" fill="#2D607C" transform="translate(10 184) scale(1.4 .95)"/>
+        <path d="M12 289 H608" stroke="#B38B2D" stroke-width="3"/>
+      </svg>
         </a>
         <p class="footer-tag">Telehealth psychiatric care that helps you feel steady again.</p>
       </div>
@@ -811,9 +827,10 @@
       </div>
       <div class="footer-col">
         <h5>Contact</h5>
-        <a href="tel:+17169033502">(716) 903-3502</a>
+        <a href="tel:+17196213288">719-621-3288</a>
         <a href="mailto:joebielefeld@bie-well.com">joebielefeld@bie-well.com</a>
         <a href="#contact">Book a consultation</a>
+        <a href="https://care.headway.co/providers/joseph-bielefeld" target="_blank" rel="noopener noreferrer">Book on Headway<span class="sr-only"> (opens in a new tab)</span></a>
       </div>
       <div class="footer-col">
         <h5>In crisis?</h5>
@@ -944,3 +961,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
